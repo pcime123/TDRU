@@ -1,0 +1,13 @@
+# ninja log v5
+17	179	0	CMakeFiles/seeeyes-lib.dir/src/main/jni/SerialPort.c.o	e2f45b934035bf14
+1	190	0	CMakeFiles/seeeyes-lib.dir/src/main/jni/seeeyes-jni.cpp.o	2da54003257717df
+5	226	0	CMakeFiles/seeeyes-lib.dir/src/main/jni/SpiPort.c.o	fb8a4710f5950b63
+226	1782	0	../../../../build/intermediates/cmake/release/obj/x86_64/libseeeyes-lib.so	49f36ac27f9de576
+10	175	0	CMakeFiles/seeeyes-lib.dir/src/main/jni/SerialPort.c.o	e2f45b934035bf14
+7	212	0	CMakeFiles/seeeyes-lib.dir/src/main/jni/seeeyes-jni.cpp.o	2da54003257717df
+2	221	0	CMakeFiles/seeeyes-lib.dir/src/main/jni/SpiPort.c.o	fb8a4710f5950b63
+221	1361	0	../../../../build/intermediates/cmake/release/obj/x86_64/libseeeyes-lib.so	49f36ac27f9de576
+3	208	0	CMakeFiles/seeeyes-lib.dir/src/main/jni/SerialPort.c.o	e2f45b934035bf14
+11	236	0	CMakeFiles/seeeyes-lib.dir/src/main/jni/seeeyes-jni.cpp.o	2da54003257717df
+7	253	0	CMakeFiles/seeeyes-lib.dir/src/main/jni/SpiPort.c.o	fb8a4710f5950b63
+253	1490	0	../../../../build/intermediates/cmake/release/obj/x86_64/libseeeyes-lib.so	49f36ac27f9de576

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="status">상태</string>
+    <string name="return_loss_db">반사 손실 (dB)</string>
+    <string name="cable_length_m">케이블 길이 (m)</string>
+    <string name="utp_cable_length_measure">UTP 케이블 길이 측정</string>
+    <string name="check">검사</string>
+    <string name="cable_diagram">케이블 다이어그램</string>
+    <string name="cam_side">CAM 포트</string>
+    <string name="nvr_side">NET 포트</string>
+    <string name="none">없음</string>
+    <string name="pair">페어</string>
+    <string name="please_wait">잠시 기다리십시오..</string>
+
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="status">Status</string>
+    <string name="return_loss_db">Rückflussdämpfung (dB)</string>
+    <string name="cable_length_m">Kabellänge (m)</string>
+    <string name="pair">Paar</string>
+    <string name="utp_cable_length_measure">UTP Kabellänge messen</string>
+    <string name="check">Prüfen</string>
+    <string name="cable_diagram">Kabeldiagramm</string>
+    <string name="cam_side">CAM-Port</string>
+    <string name="nvr_side">NET-Port</string>
+    <string name="none">Keiner</string>
+    <string name="please_wait">Warten Sie mal..</string>
+
+</resources>

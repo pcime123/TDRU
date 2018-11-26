@@ -1,0 +1,16 @@
+{
+  "buildFiles": [
+    "E:\\001. Project\\006. Monitor\\SC-IPM07PRO\\Apps\\04-TDRU\\TDRU\\seeeyes\\CMakeLists.txt"
+  ],
+  "cleanCommands": [
+    "C:\\Users\\JinseopKim\\AppData\\Local\\Android\\Sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build \"E:\\001. Project\\006. Monitor\\SC-IPM07PRO\\Apps\\04-TDRU\\TDRU\\seeeyes\\.externalNativeBuild\\cmake\\release\\armeabi-v7a\" --target clean"
+  ],
+  "libraries": {
+    "seeeyes-lib-Release-armeabi-v7a": {
+      "artifactName": "seeeyes-lib",
+      "buildCommand": "C:\\Users\\JinseopKim\\AppData\\Local\\Android\\Sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build \"E:\\001. Project\\006. Monitor\\SC-IPM07PRO\\Apps\\04-TDRU\\TDRU\\seeeyes\\.externalNativeBuild\\cmake\\release\\armeabi-v7a\" --target seeeyes-lib",
+      "abi": "armeabi-v7a",
+      "output": "E:\\001. Project\\006. Monitor\\SC-IPM07PRO\\Apps\\04-TDRU\\TDRU\\seeeyes\\build\\intermediates\\cmake\\release\\obj\\armeabi-v7a\\libseeeyes-lib.so"
+    }
+  }
+}

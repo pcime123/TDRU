@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="status">Status</string>
+    <string name="return_loss_db">Return Loss(dB)</string>
+    <string name="cable_length_m">Cable Length(m)</string>
+    <string name="pair">Pair</string>
+    <string name="utp_cable_length_measure">UTP Cable Length Measure</string>
+    <string name="check">Check</string>
+    <string name="cable_diagram">Cable Diagram</string>
+    <string name="cam_side">CAM Port</string>
+    <string name="nvr_side">NET Port</string>
+    <string name="none">None</string>
+    <string name="please_wait">Please wait..</string>
+
+</resources>

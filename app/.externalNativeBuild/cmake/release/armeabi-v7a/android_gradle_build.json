@@ -1,0 +1,31 @@
+
+{
+	"buildFiles" : 
+	[
+		"E:/001. Project/006. Monitor/TEST_M/SeeEyesMonitor_TM/app/CMakeLists.txt"
+	],
+	"cleanCommands" : 
+	[
+		"C:\\Users\\JinseopKim\\AppData\\Local\\Android\\Sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build \"E:\\001. Project\\006. Monitor\\TEST_M\\SeeEyesMonitor_TM\\app\\.externalNativeBuild\\cmake\\release\\armeabi-v7a\" --target clean"
+	],
+	"libraries" : 
+	{
+		"serial-lib.so-Release-armeabi-v7a" : 
+		{
+			"abi" : "armeabi-v7a",
+			"artifactName" : "serial-lib.so",
+			"buildCommand" : "C:\\Users\\JinseopKim\\AppData\\Local\\Android\\Sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build \"E:\\001. Project\\006. Monitor\\TEST_M\\SeeEyesMonitor_TM\\app\\.externalNativeBuild\\cmake\\release\\armeabi-v7a\" --target serial-lib.so",
+			"buildType" : "release",
+			"output" : "E:/001. Project/006. Monitor/TEST_M/SeeEyesMonitor_TM/app/build/intermediates/cmake/release/obj/armeabi-v7a/libserial-lib.so.so",
+			"toolchain" : "4066485183"
+		}
+	},
+	"toolchains" : 
+	{
+		"4066485183" : 
+		{
+			"cCompilerExecutable" : "C:/Users/JinseopKim/AppData/Local/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe",
+			"cppCompilerExecutable" : "C:/Users/JinseopKim/AppData/Local/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++.exe"
+		}
+	}
+}

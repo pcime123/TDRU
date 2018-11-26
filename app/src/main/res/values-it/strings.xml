@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="status">Stato</string>
+    <string name="return_loss_db">Return Loss (dB)</string>
+    <string name="cable_length_m">Lunghezza del cavo (m)</string>
+    <string name="pair">Paio</string>
+    <string name="utp_cable_length_measure">Misura lunghezza cavo UTP</string>
+    <string name="check">Dai un\'occhiata</string>
+    <string name="cable_diagram">Diagramma dei cavi</string>
+    <string name="cam_side">Porta CAM</string>
+    <string name="nvr_side">Porta NET</string>
+    <string name="none">Nessuna</string>
+    <string name="please_wait">Attendere prego..</string>
+
+</resources>

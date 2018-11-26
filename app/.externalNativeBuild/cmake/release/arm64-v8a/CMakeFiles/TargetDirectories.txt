@@ -1,0 +1,3 @@
+E:/001. Project/006. Monitor/TEST_M/SeeEyesMonitor_TM/app/.externalNativeBuild/cmake/release/arm64-v8a/CMakeFiles/serial-lib.so.dir
+E:/001. Project/006. Monitor/TEST_M/SeeEyesMonitor_TM/app/.externalNativeBuild/cmake/release/arm64-v8a/CMakeFiles/edit_cache.dir
+E:/001. Project/006. Monitor/TEST_M/SeeEyesMonitor_TM/app/.externalNativeBuild/cmake/release/arm64-v8a/CMakeFiles/rebuild_cache.dir

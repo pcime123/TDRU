@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="status">状態</string>
+    <string name="return_loss_db">反射損失 (dB)</string>
+    <string name="cable_length_m">ケーブルの長さ(m)</string>
+    <string name="pair">フェア</string>
+    <string name="utp_cable_length_measure">UTPケーブルの長さ測定</string>
+    <string name="check">検査</string>
+    <string name="cable_diagram">ケーブルのダイヤグラム</string>
+    <string name="cam_side">CAMポート</string>
+    <string name="nvr_side">NETポート</string>
+    <string name="none">無し</string>
+    <string name="please_wait">少々お待ちください…</string>
+
+</resources>
