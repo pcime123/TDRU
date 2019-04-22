@@ -11,5 +11,19 @@
     <string name="nvr_side">NETポート</string>
     <string name="none">無し</string>
     <string name="please_wait">少々お待ちください…</string>
+    <string name="close">閉じる</string>
+    <string name="unmeasurable">測定不可</string>
+    <string name="test1">※ 測定可能なケーブルの長さ（CAT 5E 基準）: 10m ~ 200m</string>
+    <string name="text2">注意事項</string>
+    <string name="text3">- 測定結果は公式測定距離と異なる場合があるため、参照としてお使いください。</string>
+    <string name="text4">- ケーブルの任意的な短絡または、曲げがひどい場合、測定されない場合があります。</string>
+    <string name="text5">- ケーブル終端に製品が接続されている場合、状態及び距離が測定されない場合があります。</string>
+    <string name="text6">- 200m以上を測定する場合、SC－TG02を接続した後にTDRCアプリで測定してください。</string>
+    <string name="text7">ケーブルの状態</string>
+    <string name="text8">- Pair Open：ケーブル終端に何も接続されていない状態です。</string>
+    <string name="text9">- Pair Short：ケーブル終端が短絡された状態です。</string>
+    <string name="text10">- Cross Pair Short：異なるペアのケーブルでショートされた状態です。</string>
+    <string name="text11">- Same Pair Short：ペアであるケーブルがショートされた状態です。</string>
+    <string name="text12">- Invalid：理由不明で測定されない状態です。</string>
 
 </resources>

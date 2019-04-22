@@ -20,11 +20,14 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -38,18 +41,24 @@ import java.util.Objects;
 
 
 public class MainActivity extends Activity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
-    private static final String TAG = "MainActivity";
+    private static final String TAG = "TDRU_1904151935";
     private TextView stat1, stat2, stat3, stat4, len1, len2, len3, len4;
     private TextView ref1, ref2, ref3, ref4, amp1, amp2, amp3, amp4;
     private String[] cmdline = {"sh", "-c", "echo 1 > /sys/class/misc/mv88e6176/vct"};
     private String[] cmdline1 = {"sh", "-c", "echo 2 > /sys/class/misc/mv88e6176/vct"};
     private Runtime runtime = Runtime.getRuntime();
     private Boolean state;
+    private int lengthValue1, lengthValue2, lengthValue3, lengthValue4;
+    private Button precautions, diagram, start;
+    private Context mContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+//        Log.i(TAG, "TDRU App Data: 201903260918   Version: 2.0.0");
+
 
 //        ImageView imageView = findViewById(R.id.cable_image);
 //        final Animation animation = AnimationUtils.loadAnimation(this, R.anim.cable_anim);
@@ -58,16 +67,20 @@ public class MainActivity extends Activity implements View.OnClickListener, Comp
 //        ImageView imageView1 = findViewById(R.id.monitor_image);
 //        final AnimationDrawable drawable = (AnimationDrawable) imageView1.getBackground();
 //        drawable.start();
-//        start = findViewById(R.id.start_button);
+        start = findViewById(R.id.start_button);
+        start.setFocusable(true);
+        start.setFocusableInTouchMode(true);
+        start.requestFocus();
         findViewById(R.id.start_button).setOnClickListener(this);
         findViewById(R.id.diagram_button).setOnClickListener(this);
+        findViewById(R.id.pre_button).setOnClickListener(this);
 //        findViewById(R.id.test1_button).setOnClickListener(this);
         Switch portSwitch = findViewById(R.id.port_switch);
         portSwitch.setOnCheckedChangeListener(this);
         state = portSwitch.isChecked();
-
+        mContext = MainActivity.this;
         try {
-            if(state) {
+            if (state) {
                 runtime.exec(cmdline1);
             } else {
                 runtime.exec(cmdline);
@@ -76,7 +89,7 @@ public class MainActivity extends Activity implements View.OnClickListener, Comp
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Log.d(TAG, "Port State: " + portSwitch.isChecked());
+//        Log.d(TAG, "Port State: " + portSwitch.isChecked());
 
         stat1 = findViewById(R.id.status_1);
         stat2 = findViewById(R.id.status_2);
@@ -92,7 +105,6 @@ public class MainActivity extends Activity implements View.OnClickListener, Comp
         amp2 = findViewById(R.id.level_2);
         amp3 = findViewById(R.id.level_3);
         amp4 = findViewById(R.id.level_4);
-
 
 
     }
@@ -151,48 +163,94 @@ public class MainActivity extends Activity implements View.OnClickListener, Comp
             case R.id.diagram_button:
                 AlertDialog.Builder builder;
                 AlertDialog alertDialog;
-                Context mContext = MainActivity.this;
+
 
                 LayoutInflater inflater = (LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
                 View layout = inflater.inflate(R.layout.custom_dialog, null);
-                ImageView imageView = (ImageView) layout.findViewById(R.id.imageView2);
-                imageView.setImageResource(R.drawable.image1);
+                ImageView imageView = layout.findViewById(R.id.imageView2);
+                imageView.setImageResource(R.drawable.image2);
                 builder = new AlertDialog.Builder(mContext);
                 builder.setView(layout);
 
-                builder.setNegativeButton("Close", new DialogInterface.OnClickListener() {
+                builder.setNegativeButton(getResources().getString(R.string.close), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
                     }
                 });
-               alertDialog = builder.create();
-                alertDialog.show();
-                break;
-//            case R.id.test1_button:
 
-//                break;
+                alertDialog = builder.create();
+
+                WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
+                layoutParams.copyFrom(alertDialog.getWindow().getAttributes());
+                layoutParams.width = 1500;
+
+                alertDialog.show();
+                Window window = alertDialog.getWindow();
+                window.setAttributes(layoutParams);
+                break;
+            case R.id.pre_button:
+                AlertDialog.Builder builder1;
+                AlertDialog alertDialog1;
+
+                LayoutInflater inflater1 = (LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
+                View layout1 = inflater1.inflate(R.layout.pre_dialog, null);
+                builder1 = new AlertDialog.Builder(mContext);
+                builder1.setView(layout1);
+
+                builder1.setNegativeButton(getResources().getString(R.string.close), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+
+                alertDialog1 = builder1.create();
+
+                WindowManager.LayoutParams layoutParams1 = new WindowManager.LayoutParams();
+                layoutParams1.copyFrom(alertDialog1.getWindow().getAttributes());
+                layoutParams1.width = 1500;
+
+                alertDialog1.show();
+                Window window1 = alertDialog1.getWindow();
+                window1.setAttributes(layoutParams1);
+
+                break;
         }
     }
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         state = isChecked;
+
+        try {
+            if (state) {
+                runtime.exec(cmdline1);
+            } else {
+                runtime.exec(cmdline);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @SuppressLint("StaticFieldLeak")
     private class CheckTypesTask extends AsyncTask<Void, Void, Void> {
-
         ProgressDialog progressDialog = new ProgressDialog(MainActivity.this);
 
 
         @Override
         protected void onPreExecute() {
             progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            progressDialog.setCanceledOnTouchOutside(false);
+            progressDialog.setCancelable(false);
             progressDialog.setMessage(getResources().getText(R.string.please_wait).toString());
 
 
             progressDialog.show();
+            initSetText();
+
             super.onPreExecute();
 
         }
@@ -201,7 +259,7 @@ public class MainActivity extends Activity implements View.OnClickListener, Comp
         protected Void doInBackground(Void... voids) {
 
             try {
-                if(state) {
+                if (state) {
                     runtime.exec(cmdline1);
                 } else {
                     runtime.exec(cmdline);
@@ -217,13 +275,46 @@ public class MainActivity extends Activity implements View.OnClickListener, Comp
         @Override
         @SuppressLint("DefaultLocale")
         protected void onPostExecute(Void aVoid) {
+            Log.d(TAG, "onPostExecute()");
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
 
-                    statusSetText();
-                    lengthSetText();
-                    ampSetText();
+                    lengthValue1 = getData().length1;
+                    lengthValue2 = getData().length2;
+                    lengthValue3 = getData().length3;
+                    lengthValue4 = getData().length4;
+
+//                    Log.d(TAG, "Length Value1: " + lengthValue1 + " Length Value2: " + lengthValue2 + " Length Value3: " + lengthValue3 + " Length Value4: " + lengthValue4);
+//                    Log.d(TAG, "Length Value1: " + (lengthValue1 >= 1000) + " Length Value2: " + (lengthValue2 >= 1000) + " Length Value3: " + (lengthValue3 >= 1000) + " Length Value4: " + (lengthValue4 >= 1000));
+
+                    if ((lengthValue1 >= 1000) || (lengthValue2 >= 1000) || (lengthValue3 >= 1000) || (lengthValue4 >= 1000)) {
+//                        Log.d(TAG, "true");
+                        statusSetText();
+                        lengthSetText();
+                        ampSetText();
+
+                    } else {
+//                        Log.d(TAG, "false");
+
+                        String unmeasurable = getString(R.string.unmeasurable);
+//
+                        stat1.setText(unmeasurable);
+                        stat2.setText(unmeasurable);
+                        stat3.setText(unmeasurable);
+                        stat4.setText(unmeasurable);
+
+                        len1.setText(R.string.none_length);
+                        len2.setText(R.string.none_length);
+                        len3.setText(R.string.none_length);
+                        len4.setText(R.string.none_length);
+
+                        amp1.setText(R.string.none_length);
+                        amp2.setText(R.string.none_length);
+                        amp3.setText(R.string.none_length);
+                        amp4.setText(R.string.none_length);
+                    }
+
                     progressDialog.dismiss();
 
                 }
@@ -276,6 +367,7 @@ public class MainActivity extends Activity implements View.OnClickListener, Comp
     }
 
     public ResultValue getData() {
+//        Log.d(TAG, "getData()");
         ResultValue resultValue = new ResultValue(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         try {
             FileInputStream fileInputStream = new FileInputStream("/sys/class/misc/mv88e6176/vct");
@@ -328,12 +420,12 @@ public class MainActivity extends Activity implements View.OnClickListener, Comp
         int value3 = getData().status3;
         int value4 = getData().status4;
 
-        String invalid = "Invalid";
-        String ok = "Pair OK";
-        String open = "Pair Open";
-        String same_short = "Same Pair Short";
-        String cross_short = "Cross Pair Short";
-        String busy = "Pair Busy";
+        String invalid = getString(R.string.invalid);
+        String ok = getString(R.string.pair_ok);
+        String open = getString(R.string.pair_open);
+        String same_short = getString(R.string.same_pair_short);
+        String cross_short = getString(R.string.cross_pair_short);
+        String busy = getString(R.string.pair_busy);
 
         int step = 0;
 
@@ -375,21 +467,17 @@ public class MainActivity extends Activity implements View.OnClickListener, Comp
 
     @SuppressLint("SetTextI18n")
     public void lengthSetText() {
-        int value1 = getData().length1;
-        int value2 = getData().length2;
-        int value3 = getData().length3;
-        int value4 = getData().length4;
 
 
-        if (value1 <= 80) value1 = 0;
-        if (value2 <= 80) value2 = 0;
-        if (value3 <= 80) value3 = 0;
-        if (value4 <= 80) value4 = 0;
+        if (lengthValue1 <= 80) lengthValue1 = 0;
+        if (lengthValue2 <= 80) lengthValue2 = 0;
+        if (lengthValue3 <= 80) lengthValue3 = 0;
+        if (lengthValue4 <= 80) lengthValue4 = 0;
 
-        len1.setText(value1 / 100 + "." + value1 % 100);
-        len2.setText(value2 / 100 + "." + value2 % 100);
-        len3.setText(value3 / 100 + "." + value3 % 100);
-        len4.setText(value4 / 100 + "." + value4 % 100);
+        len1.setText(lengthValue1 / 100 + "." + lengthValue1 % 100);
+        len2.setText(lengthValue2 / 100 + "." + lengthValue2 % 100);
+        len3.setText(lengthValue3 / 100 + "." + lengthValue3 % 100);
+        len4.setText(lengthValue4 / 100 + "." + lengthValue4 % 100);
     }
 
     @SuppressLint("SetTextI18n")
@@ -399,10 +487,10 @@ public class MainActivity extends Activity implements View.OnClickListener, Comp
         int value3 = getData().amplitude3;
         int value4 = getData().amplitude4;
 
-        if(value1 > 99) value1 = 99;
-        if(value2 > 99) value2 = 99;
-        if(value3 > 99) value3 = 99;
-        if(value4 > 99) value4 = 99;
+        if (value1 > 99) value1 = 99;
+        if (value2 > 99) value2 = 99;
+        if (value3 > 99) value3 = 99;
+        if (value4 > 99) value4 = 99;
 
         double zlz1 = Math.abs(100 - value1);
         double zlz2 = Math.abs(100 - value2);
@@ -424,10 +512,10 @@ public class MainActivity extends Activity implements View.OnClickListener, Comp
         double db3 = 20 * Math.log(gam3) / Math.log(10);
         double db4 = 20 * Math.log(gam4) / Math.log(10);
 
-        Log.d(TAG, "amp1: " + value1 + " zlz1: " + zlz1 + " zoz1: " + zoz1 + " gam1: " + gam1 + " db1: " + db1);
-        Log.d(TAG, "amp2: " + value2 + " zlz2: " + zlz2 + " zoz2: " + zoz2 + " gam2: " + gam2 + " db2: " + db2);
-        Log.d(TAG, "amp3: " + value3 + " zlz3: " + zlz3 + " zoz3: " + zoz3 + " gam3: " + gam3 + " db3: " + db3);
-        Log.d(TAG, "amp4: " + value4 + " zlz4: " + zlz4 + " zoz4: " + zoz4 + " gam4: " + gam4 + " db4: " + db4);
+//        Log.d(TAG, "amp1: " + value1 + " zlz1: " + zlz1 + " zoz1: " + zoz1 + " gam1: " + gam1 + " db1: " + db1);
+//        Log.d(TAG, "amp2: " + value2 + " zlz2: " + zlz2 + " zoz2: " + zoz2 + " gam2: " + gam2 + " db2: " + db2);
+//        Log.d(TAG, "amp3: " + value3 + " zlz3: " + zlz3 + " zoz3: " + zoz3 + " gam3: " + gam3 + " db3: " + db3);
+//        Log.d(TAG, "amp4: " + value4 + " zlz4: " + zlz4 + " zoz4: " + zoz4 + " gam4: " + gam4 + " db4: " + db4);
         @SuppressLint("DefaultLocale") String num1 = String.format("%.2f", db1);
         @SuppressLint("DefaultLocale") String num2 = String.format("%.2f", db2);
         @SuppressLint("DefaultLocale") String num3 = String.format("%.2f", db3);
@@ -467,6 +555,23 @@ public class MainActivity extends Activity implements View.OnClickListener, Comp
 //                break;
 //        }
 //    }
+
+    private void initSetText() {
+        stat1.setText(R.string.none);
+        stat2.setText(R.string.none);
+        stat3.setText(R.string.none);
+        stat4.setText(R.string.none);
+
+        len1.setText(R.string.none_length);
+        len2.setText(R.string.none_length);
+        len3.setText(R.string.none_length);
+        len4.setText(R.string.none_length);
+
+        amp1.setText(R.string.none_length);
+        amp2.setText(R.string.none_length);
+        amp3.setText(R.string.none_length);
+        amp4.setText(R.string.none_length);
+    }
 
 }
 

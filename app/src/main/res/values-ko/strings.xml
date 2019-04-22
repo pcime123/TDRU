@@ -11,5 +11,19 @@
     <string name="none">없음</string>
     <string name="pair">페어</string>
     <string name="please_wait">잠시 기다리십시오..</string>
+    <string name="close">닫기</string>
+    <string name="unmeasurable">측정 불가</string>
+    <string name="test1">※ 측정 가능한 케이블 길이 (CAT 5E 기준) : 10m ~ 200m</string>
+    <string name="text2">사용 시 주의사항</string>
+    <string name="text3">- 측정 결과는 공식적인 측정 거리와 차이가 있을 수 있으니 참조용으로 사용해야 합니다.</string>
+    <string name="text4">- 케이블을 임의로 합선시키거나 구부러짐이 심할 경우 측정되지 않을 수 있습니다.</string>
+    <string name="text5">- 케이블 종단에 제품이 연결되어 있으면 상태와 거리가 측정되지 않을 수 있습니다.</string>
+    <string name="text6">- 200m 이상 측정할 경우 TG02를 연결한 뒤 TDRC 앱에서 측정해야 합니다.</string>
+    <string name="text7">케이블 상태</string>
+    <string name="text8">- Pair Open : 케이블 종단에 아무것도 연결되지 않은 상태입니다.</string>
+    <string name="text9">- Pair Short: 케이블 종단이 합선된 상태입니다.</string>
+    <string name="text10">- Cross Pair Short: 다른 페어의 케이블이 합선된 상태입니다.</string>
+    <string name="text11">- Same Pair Short: 같은 페어의 케이블이 합선된 상태입니다.</string>
+    <string name="text12">- Invalid: 알 수 없는 이유로 측정이 되지 않는 상태입니다.</string>
 
 </resources>

@@ -11,5 +11,19 @@
     <string name="nvr_side">Porta NET</string>
     <string name="none">Nessuna</string>
     <string name="please_wait">Attendere prego..</string>
+    <string name="close">Vicino</string>
+    <string name="unmeasurable">Unmeasurable</string>
+    <string name="test1">※ Measurable cable length (based on CAT 5E) : 10m ~ 200m</string>
+    <string name="text2">Precautions</string>
+    <string name="text3">- The measurement result may differ from the official measurement length. Please use it as a reference.</string>
+    <string name="text4">- The cable may not be measured if it is shorted arbitrarily or bent excessibely.</string>
+    <string name="text5">"- The cable status and length may not be measured if any product is connected to the cable end. "</string>
+    <string name="text6">"- When measuring more than 200m, connect TG02 and measure it in the TDRC app. "</string>
+    <string name="text7">Cable Status</string>
+    <string name="text8">- Pair Open : Nothing is connected to the cable end.</string>
+    <string name="text9">- Pair Short : The cable end is short-circuited.</string>
+    <string name="text10">- Cross Pair Short : Cables in other pairs are short-circuited.</string>
+    <string name="text11">- Same Pair Short : Cables in same pair are short-circuited.</string>
+    <string name="text12">- Invalid : Cannot be measured due to unknown reason.</string>
 
 </resources>
